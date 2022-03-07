@@ -1,16 +1,16 @@
 pipeline {
         agent any
         environment {
-            APIGEE_SA_CREDS = credentials("Jenkins_git_token4x251963")
+            APIGEE_SA_CREDS = credentials('APIGEE_SA_CREDS')
             ORG = "apigee-deploy-maven"
             ENV = "eval"
         }
        stages {
 
 
-                stage("initialize") {
+                stage('initialize') {
                     steps {
-                        withMaven(maven: "maven") {
+                        withMaven(maven: 'maven') {
                             sh "mvn --version"
                         }
 
@@ -19,17 +19,14 @@ pipeline {
                 stage ("Build") {
                       steps {
                         sh "mvn clean package"
-                        sh "echo '============Build===================='"
                         sh "mvn --version"
                       }
                 }
 
          stage("Deploy proxy bundle") {
                     steps {
-                        withMaven(maven: "maven"){
-			    sh "ls -la ./Mock-v1/"	
-                            sh "echo '============COMP===================='"
-                            sh "mvn install -Ptest -f ./Mock-v1/pom.xml -Dorg=${env.ORG} -Denv=${env.ENV}  -Dfile=${APIGEE_SA_CREDS}"
+                        withMaven(maven: 'maven'){                 
+                            sh "mvn install -Ptest -f ./Mock-v1/pom.xml -Dorg=${env.ORG} -Denv=${env.ENV}  -Dfile=\${APIGEE_SA_CREDS}"
                         }
                     }
                 }
