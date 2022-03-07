@@ -43,7 +43,7 @@ pipeline {
                     steps {
                         withMaven(maven: "maven"){
                           //  sh "mvn install -Ptest -f ./Mock-v1/pom.xml -Dusername==${ORG} -Denv=${ENV}  -Dpassword=${APIGEE_SA_CREDS}"
-                                cat ./Mock-v1/pom.xml
+                               sh "cat  ./Mock-v1/pom.xml"
                         }
                     }
                 }
