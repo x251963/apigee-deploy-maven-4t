@@ -2,7 +2,7 @@ pipeline {
         agent any
         environment {
             APIGEE_SA_CREDS = credentials("APIGEE_SA_CREDS")
-            ORG = "apigee-deploy-maven-4t"
+            ORG = "cdo-ccai-apigee-np-7d4f08"
             ENV = "eval"
         }
        stages {
