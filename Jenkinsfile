@@ -1,5 +1,9 @@
 pipeline {
         agent any
+        tools {
+                 jdk   "JAVA8"
+                 maven "Maven 3.8.4"    
+        }
         environment {
             APIGEE_SA_CREDS = credentials('APIGEE_SA_CREDS')
             ORG = "apigee-deploy-maven"
