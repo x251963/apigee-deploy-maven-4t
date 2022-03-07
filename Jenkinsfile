@@ -1,9 +1,5 @@
 pipeline {
         agent any
-        tools {
-                maven "Maven 3.8.4"
-                jdk   "JAVA8"
-        }
         environment {
             APIGEE_SA_CREDS = credentials("Jenkins_git_token4x251963")
             ORG = "apigee-deploy-maven"
@@ -38,6 +34,13 @@ pipeline {
                     }
                 }
 
-
+                stage("Deploy To Prod") {
+                    input {
+                        message "Do you want to proceed for production deployment?"
+                    }
+                    steps {
+                        sh "echo \"Deploy into Prod\""
+                    }
+                }
         }
 }
