@@ -2,7 +2,7 @@ pipeline {
         agent any
         environment {
             APIGEE_SA_CREDS = credentials("APIGEE_SA_CREDS")
-            ORG = "cdo-ccai-apigee-np-7d4f08"
+            ORG = "48751253166@cloudbuild.gserviceaccount.com"
             ENV = "eval"
         }
        stages {
