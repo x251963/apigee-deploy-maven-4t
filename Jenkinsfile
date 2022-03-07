@@ -2,7 +2,7 @@ pipeline {
         agent any
         environment {
             APIGEE_SA_CREDS = credentials("APIGEE_SA_CREDS")
-            ORG = "telus"
+            ORG = "apigee-next-gen-saas"
             ENV = "eval"
         }
        stages {
