@@ -6,7 +6,7 @@ pipeline {
 
     environment {
 
-        APIGEE_SA_CREDS = credentials('APIGEE_SA_CREDS')
+        APIGEE_SA_CREDS = credentials('ApigeeCreds')
 
         ORG = 'apigee-next-gen-saas'
 
