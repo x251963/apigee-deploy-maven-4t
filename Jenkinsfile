@@ -6,7 +6,7 @@ pipeline {
         }
         environment {
             APIGEE_SA_CREDS = credentials("Jenkins_git_token4x251963")
-            ORG = "apigee-deploy-maven"
+            ORG = "jenkins-cicd-apigee-sa@cdo-ccai-apigee-np-7d4f08.iam.gserviceaccount.com"
             ENV = "eval"
         }
        stages {
@@ -42,7 +42,7 @@ pipeline {
          stage("Deploy proxy bundle") {
                     steps {
                         withMaven(maven: "maven"){
-                            sh "mvn install -Ptest -f ./Mock-v1/pom.xml -Dorg=${ORG} -Denv=${ENV}  -Dfile=${APIGEE_SA_CREDS}"
+                            sh "mvn install -Ptest -f ./Mock-v1/pom.xml -Dusername==${ORG} -Denv=${ENV}  -Dpassword=${APIGEE_SA_CREDS}"
                         }
                     }
                 }
