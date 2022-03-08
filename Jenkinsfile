@@ -19,7 +19,7 @@ pipeline {
          stage("Deploy proxy bundle") {
                     steps {
                         withMaven(maven: "maven"){
-                            sh "mvn install -Ptest -f ./Mock-v1/pom.xml -Dorg=${env.ORG} -Denv=${env.ENV}  -Dfile=${APIGEE_SA_CREDS}"
+                            sh "mvn install -Ptest -f ./Mock-v1/pom.xml -Dorg=${env.ORG} -Denv=${env.ENV}  -Dfile=\${APIGEE_SA_CREDS}"
                         }
                     }
                 }
